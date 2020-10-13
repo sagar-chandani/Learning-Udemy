@@ -27,6 +27,7 @@ function tallySort(aa) {
             // set it to zero occurences if we've not seen the number yet
             tally[value] = 0
         }
+        console.log(tally[value])
         // increment how many times we've seen that number.
         tally[value]++
     }
@@ -46,7 +47,7 @@ function tallySort(aa) {
     return result;
 }
 
-let aa = randomArray(3, 10)
+let aa = randomArray(6, 10)
 console.log(aa)
 let bb = tallySort(aa)
 console.log(bb)
