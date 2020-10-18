@@ -37,6 +37,18 @@ class Tree{
         }
         return current.data + this._sum(current.left) + this._sum(current.right)
     }
+
+    numberOfNodes(){
+        return this._numberOfNodes(this.root)
+
+    }
+
+    _numberOfNodes(current){
+        if(current === null){
+            return 0
+        }
+        return 1 + this._numberOfNodes(current.left) + this._numberOfNodes(current.right)
+    }
 }
 
 let n1 = new TreeNode(32);
@@ -54,3 +66,4 @@ n4.left = n5;
 
 console.log(tree.collect())
 console.log(tree.sum())
+console.log(tree.numberOfNodes())
