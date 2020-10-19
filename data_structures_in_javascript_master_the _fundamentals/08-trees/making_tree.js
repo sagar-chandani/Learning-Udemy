@@ -49,6 +49,20 @@ class Tree{
         }
         return 1 + this._numberOfNodes(current.left) + this._numberOfNodes(current.right)
     }
+
+    contains(value){
+        return this._contains(this.root,value)
+    }
+
+    _contains(node,value){
+        if(node === null){
+            return false
+        }
+        else if(node.data === value){
+            return true;
+        }
+        return this._contains(node.left,value) || this._contains(node.right,value)
+    }
 }
 
 let n1 = new TreeNode(32);
@@ -67,3 +81,4 @@ n4.left = n5;
 console.log(tree.collect())
 console.log(tree.sum())
 console.log(tree.numberOfNodes())
+console.log(tree.contains(32))
