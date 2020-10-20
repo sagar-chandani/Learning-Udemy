@@ -63,6 +63,25 @@ class Tree{
         }
         return this._contains(node.left,value) || this._contains(node.right,value)
     }
+    min() {
+        return this._min(this.root)
+    }
+
+    _min(node) {
+        if (node === null) {
+            return undefined
+        }
+        let leftMin = this._min(node.left)
+        let rightMin = this._min(node.right)
+        if (node.data < leftMin && node.data < rightMin) {
+            return node.data
+        } else if (leftMin < rightMin) {
+            return leftMin
+        } else {
+            return rightMin
+        }
+    }
+    
 }
 
 let n1 = new TreeNode(32);
