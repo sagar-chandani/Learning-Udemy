@@ -82,6 +82,24 @@ class Tree{
         }
     }
     
+    max() {
+        return this._max(this.root)
+    }
+
+    _max(node) {
+        if (node === null) {
+            return 0
+        }
+        let leftMax = this._max(node.left)
+        let rightMax = this._max(node.right)
+        if (node.data > leftMax && node.data > rightMax) {
+            return node.data
+        } else if (leftMax > rightMax) {
+            return leftMax
+        } else {
+            return rightMax
+        }
+    }
 }
 
 let n1 = new TreeNode(32);
@@ -101,3 +119,4 @@ console.log(tree.collect())
 console.log(tree.sum())
 console.log(tree.numberOfNodes())
 console.log(tree.contains(32))
+console.log(tree.min())
