@@ -71,8 +71,11 @@ class Tree{
         if (node === null) {
             return 0
         }
+        console.log("=====",node.left,node.right)
+
         let leftMin = this._min(node.left)
         let rightMin = this._min(node.right)
+        console.log("leftmin",leftMin,"rightmin",rightMin)
         if (node.data < leftMin && node.data < rightMin) {
             return node.data
         } else if (leftMin < rightMin) {
@@ -120,3 +123,4 @@ console.log(tree.sum())
 console.log(tree.numberOfNodes())
 console.log(tree.contains(32))
 console.log(tree.max())
+console.log(tree.min())
