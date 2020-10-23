@@ -146,7 +146,6 @@ class Tree {
         if (node === null) {
             return 0
         }
-        console.log(node)
         let leftMax = this._max(node.left)
         let rightMax = this._max(node.right)
         if (node.data > leftMax && node.data > rightMax) {
