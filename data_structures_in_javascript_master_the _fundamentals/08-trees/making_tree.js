@@ -137,7 +137,7 @@ n4.left = n5;
 console.log(tree.collect())
 console.log(tree.sum())
 console.log(tree.numberOfNodes())
-console.log(tree.contains(32))
+console.log(tree.contains(64))
 console.log(tree.max())
 console.log(tree.min())
 console.log(tree.height())
