@@ -103,6 +103,22 @@ class Tree{
             return rightMax
         }
     }
+    height() {
+        return this._height(this.root)
+    }
+
+    _height(node) {
+        if (node === null) {
+            return 0
+        }
+        let leftHeight = this._height(node.left)
+        let rightHeight = this._height(node.right)
+        if (leftHeight > rightHeight) {
+            return 1 + leftHeight
+        } else {
+            return 1 + rightHeight
+        }
+    }
 }
 
 let n1 = new TreeNode(32);
@@ -124,3 +140,4 @@ console.log(tree.numberOfNodes())
 console.log(tree.contains(32))
 console.log(tree.max())
 console.log(tree.min())
+console.log(tree.height())
