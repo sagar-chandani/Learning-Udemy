@@ -18,7 +18,7 @@ function sumDelta(arr) {
 // what if there's just one value in the array?
 // what if there's two values?
 // what if there's many values?
-console.log(sumDelta([]))
+console.log(sumDelta([]))  
 console.log(sumDelta([9]))
 console.log(sumDelta([9, 12]))
 console.log(sumDelta([2, 6, 12, 19]))
