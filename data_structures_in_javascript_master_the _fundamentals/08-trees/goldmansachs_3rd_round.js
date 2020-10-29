@@ -9,3 +9,5 @@ https://medium.com/swlh/algorithms-with-javascript-median-of-two-sorted-arrays-2
 // todays monday 10/26 -  no update from goldman sachs yet! waiting for next round
 
 // today is tuesday 10/27 - no updated from goldmansachs, I am excited for the next round, I am hoping to get the next round tomorrow!
+
+// today is wednesday 10/28 - I got the update from Goldman Sachs that they want to proceed with me for next round.
