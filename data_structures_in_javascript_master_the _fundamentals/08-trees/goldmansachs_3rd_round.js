@@ -13,3 +13,5 @@ https://medium.com/swlh/algorithms-with-javascript-median-of-two-sorted-arrays-2
 // today is wednesday 10/28 - I got the update from Goldman Sachs that they want to proceed with me for next round.
 
 // today is thursday 10/29 - I am still waiting for final round to be scheduled
+
+// today is friday 10/30 - my mom dads marriage anniversary - no update from goldman sachs, I am hoping to get the rounds scheduled on monday 
