@@ -17,3 +17,5 @@ https://medium.com/swlh/algorithms-with-javascript-median-of-two-sorted-arrays-2
 // today is friday 10/30 - my mom dads marriage anniversary - no update from goldman sachs, I am hoping to get the rounds scheduled on monday 
 
 // today is saturday 10/31 - no update from goldman sachs, will surely get something on monday, also I am looking forward to apply tomorrow
+
+//  today is monday 11/2 - I got my final round today, I will prepare for it and get the job in Goldmansachs ,I imagine myself working as a Platform Developer in Goldman sachs
