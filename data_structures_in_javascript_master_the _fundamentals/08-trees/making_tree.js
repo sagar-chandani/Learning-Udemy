@@ -71,12 +71,12 @@ class Tree{
         if (node === null) {
             return 0
         }
-        console.log("=====",node.left,node.right)
+        // console.log("=====",node.left,node.right)
 
         let leftMin = this._min(node.left)
         let rightMin = this._min(node.right)
-        console.log("leftmin",leftMin,"rightmin",rightMin)
-        if (node.data < leftMin && node.data < rightMin) {
+        // console.log("leftmin",leftMin,"rightmin",rightMin)
+        if ( node.data < rightMin && node.data < leftMin) {
             return node.data
         } else if (leftMin < rightMin) {
             return leftMin
