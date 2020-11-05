@@ -11,7 +11,7 @@ class HashMap {
     }
 
     // takes a string and returns the sum of all letters
-    // in the string where each letter has some number value
+    // in the stri ng where each letter has some number value
     // q=0, w=1... (it could be anything really)
     hash(str) {
         str = str.toLowerCase();
@@ -20,6 +20,7 @@ class HashMap {
         let sum = 0
         for (let i = 0; i < str.length; i++) {
             sum += ALPHABET.indexOf(str.charAt(i))
+            console.log(sum)
         }
         return sum
     }
