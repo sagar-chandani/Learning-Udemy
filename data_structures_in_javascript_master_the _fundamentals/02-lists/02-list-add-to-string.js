@@ -41,6 +41,7 @@ class List {
             return "[" + result + "]"
         }
     }
+    
 }
 
 const ll = new List()

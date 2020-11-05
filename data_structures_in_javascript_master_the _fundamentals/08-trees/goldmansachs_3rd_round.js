@@ -20,6 +20,7 @@ console.log("hey best of luck sagar!")
 
 //  today is monday 11/2 - I got my final round today, I will prepare for it and get the job in Goldmansachs ,I imagine myself working as a Platform Developer in Goldman sachs
 
+//  tomorrow is Thursday 11/5 - I expected my interview to be on 5th or 6th - so far it is going good - 
 var string = "Welcome to this Javascript Guide!";
 
 // Output becomes !ediuG tpircsavaJ siht ot emocleW
@@ -34,3 +35,11 @@ function reverseBySeparator(string, separator) {
 
 console.log(reverseEntireSentence)
 console.log(reverseEachWord)
+
+function isInt(num) {
+    return num % 1 === 0;
+  }
+  
+  console.log(isInt(4)); // true
+  console.log(isInt(12.2)); // false
+  console.log(isInt(0.3)); // false
