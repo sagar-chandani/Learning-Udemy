@@ -1,5 +1,5 @@
 console.log("hey best of luck sagar!")
-https://medium.com/swlh/algorithms-with-javascript-median-of-two-sorted-arrays-2ec77ffc8b9e
+// https://medium.com/swlh/algorithms-with-javascript-median-of-two-sorted-arrays-2ec77ffc8b9e
 
 
 // 2nd question : given that a dictionary of words and an input find the longest word possible from that unordered pair of input
@@ -19,3 +19,18 @@ https://medium.com/swlh/algorithms-with-javascript-median-of-two-sorted-arrays-2
 // today is saturday 10/31 - no update from goldman sachs, will surely get something on monday, also I am looking forward to apply tomorrow
 
 //  today is monday 11/2 - I got my final round today, I will prepare for it and get the job in Goldmansachs ,I imagine myself working as a Platform Developer in Goldman sachs
+
+var string = "Welcome to this Javascript Guide!";
+
+// Output becomes !ediuG tpircsavaJ siht ot emocleW
+var reverseEntireSentence = reverseBySeparator(string, "");
+
+// Output becomes emocleW ot siht tpircsavaJ !ediuG
+var reverseEachWord = reverseBySeparator(reverseEntireSentence, " ");
+
+function reverseBySeparator(string, separator) {
+  return string.split(separator).reverse().join(separator);
+}
+
+console.log(reverseEntireSentence)
+console.log(reverseEachWord)

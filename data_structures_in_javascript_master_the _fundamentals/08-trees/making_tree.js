@@ -67,6 +67,7 @@ class Tree{
         return this._min(this.root)
     }
 
+    
     _min(node) {
         if (node === null) {
             return 0
