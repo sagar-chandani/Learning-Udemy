@@ -4,7 +4,7 @@ class HashMap {
         this.maxProbes = 3
         this.buckets = new Array(7)
 
-        // explicitly set the buckets to null 
+        // explicitly set the buckets to null 6
         for (let i = 0; i < this.buckets.length; i++) {
             this.buckets[i] = null
         }
