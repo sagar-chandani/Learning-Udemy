@@ -38,3 +38,9 @@ wm.size === undefined
 var ws = new WeakSet();
 ws.add({ data: 42 });
 // Because the added object has no other references, it will not be held in the set
+
+// Binary and Octal Literals
+// Two new numeric literal forms are added for binary (b) and octal (o).
+
+// 0b111110111 === 503 // true
+// 0o767 === 503 // true
