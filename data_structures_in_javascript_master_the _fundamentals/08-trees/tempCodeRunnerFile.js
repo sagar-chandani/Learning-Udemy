@@ -44,3 +44,8 @@ ws.add({ data: 42 });
 
 // 0b111110111 === 503 // true
 // 0o767 === 503 // true
+
+let array = [1,67,43,78,2,566,3,4,6,67,67,78678,234,23,324,546,85678,3453]
+
+let sortedArray = array.sort()
+console.log(sortedArray)
