@@ -49,3 +49,6 @@ let array = [1,67,43,78,2,566,3,4,6,67,67,78678,234,23,324,546,85678,3453]
 
 let sortedArray = array.sort()
 console.log(sortedArray)
+
+let joinedArray = sortedArray.join()
+console.log(joinedArray)
