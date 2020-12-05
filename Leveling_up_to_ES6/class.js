@@ -31,3 +31,10 @@ console.log(person.getName())
 person.setName('hey')
 console.log(person.getName())
 console.log(person);
+
+
+
+enum Cardsuit {Clubs = 1, Diamonds, Hearts, Spades};
+var suitName: string = Cardsuit[2];
+
+console.log(suitName);

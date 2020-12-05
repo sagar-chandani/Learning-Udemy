@@ -1,0 +1,612 @@
+Design a class which stores demographic information of a person like name, address, phone number, male/female. 
+What if the person has any prefix to the name, multiple phone numbers/addresses,
+how will you handle dob in case of multiple locations(If a person is both at 12 PM in USA on a date,
+then that date is different from date in India), how will you handle the validations of these fields when the user enters the values.
+Try using enums
+
+
+import javax.swing.text.DateFormatter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
+
+/**
+ * Created by pmareke on 22/09/16.
+ */
+public class Baby {
+    private String name;
+    private Date birth;
+    private String continent;
+    private String city;
+
+    public Baby(String name, Date birth, String continent, String city) {
+        this.name = name;
+        this.birth = birth;
+        this.continent = continent;
+        this.city = city;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getBirth() {
+        return convertoTimeZone(continent, city);
+    }
+
+    public void setBirth(Date birth) {
+        this.birth = birth;
+    }
+
+    public String getContinent() {
+        return continent;
+    }
+
+    public void setContinent(String continent) {
+        this.continent = continent;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getBirthInOtherTimeZone(String continent, String city) {
+        return convertoTimeZone(continent, city);
+    }
+
+    public String convertoTimeZone(String continent, String city){
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(this.birth);
+
+        DateFormat formatter = new SimpleDateFormat("dd MMM yyyy HH:mm:ss z");
+
+        formatter.setCalendar(calendar);
+        formatter.setTimeZone(TimeZone.getTimeZone(continent + "/" + city ));
+
+        return formatter.format(calendar.getTime());
+    }
+}
+
+**********************************************************************************************************************************
+**********************************************************************************************************************************
+**********************************************************************************************************************************
+
+Design a class (give different methods and variables that will be used)
+that will provide information related to an allergy which includes symptoms, who reported the allergy, severity, date reported etc.
+
+import java.util.*;
+
+class Allergy {
+
+	private String symptons;
+	private String reporters;
+	private Severity severity;
+	private String diseaseName;
+
+	// constructor
+	public Allergy(String symptons, String reporters, Severity severity, String diseaseName) {
+		super();
+		this.symptons = symptons;
+		this.reporters = reporters;
+		this.severity = severity;
+		this.diseaseName = diseaseName;
+	}
+
+	public String getDiseaseName() {
+		return diseaseName;
+	}
+
+	public void setDiseaseName(String diseaseName) {
+		this.diseaseName = diseaseName;
+	}
+
+	public String getSymptons() {
+		return symptons;
+	}
+
+	public void setSymptons(String symptons) {
+		this.symptons = symptons;
+	}
+
+	public String getReporters() {
+		return reporters;
+	}
+
+	public void setReporters(String reporters) {
+		this.reporters = reporters;
+	}
+
+	public Severity getSeverity() {
+		return severity;
+	}
+
+	public void setSeverity(Severity severity) {
+		this.severity = severity;
+	}
+
+}
+
+import java.util.ArrayList;
+import java.util.List;
+
+class Patient extends Person {
+
+	private List<Allergy> allergies;
+	private List<Medication> medications;
+	
+
+	public Patient(String name, String phoneNumber, String emailAddress, Address address, List<Allergy> allergies) {
+		super(name, phoneNumber, emailAddress, address);
+		this.allergies = allergies;
+	}
+
+	@Override
+	public String toString() {
+		return "Patient [allergies=" + allergies + ", getAllergies()=" + getAllergies() + ", getName()=" + getName()
+				+ ", getPhoneNumber()=" + getPhoneNumber() + ", getEmailAddress()=" + getEmailAddress()
+				+ ", getAddress()=" + getAddress() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
+
+	public List<Allergy> getAllergies() {
+		return allergies;
+	}
+
+	public void setAllergies(List<Allergy> allergies) {
+		this.allergies = allergies;
+	}
+
+}
+
+
+**********************************************************************************************************************************
+                                                        OR
+**********************************************************************************************************************************
+
+public class AllergyQuestion {
+    enum Severity {
+        LOW, MEDIUM, HIGH;
+    }
+    
+    public static class Allergy {
+        private String reporter;
+        private String symptoms;
+        private Severity severity;
+        private Timestamp reportedDate;
+        
+        public Allergy(String reporter, String symptoms, Severity severity, Timestamp reportedDate) {
+            this.reporter = reporter;
+            this.symptoms = symptoms;
+            this.severity = severity;
+            this.reportedDate = reportedDate;
+        }
+        
+        public String getReporter() {
+            return this.reporter;
+        }
+        
+        public void setReporter(String reporter) {
+            this.reporter = reporter;
+        }
+        
+        public String getSymptoms() {
+            return this.symptoms;
+        }
+        
+        public void setSymptoms(String symptoms) {
+            this.symptoms = symptoms;
+        }
+        
+        public Severity getSeverity() {
+            return this.severity;
+        }
+        
+        public void setSeverity(Severity severity) {
+            this.severity = severity;
+        }
+        
+        public Timestamp getReportedDate() {
+            return this.reportedDate;
+        }
+        
+        public void setReportedDate(Severity severity) {
+            this.severity = severity;
+        }
+         
+    }
+    
+    public static void main(String[] args) {
+        Allergy peanutAllergy = new Allergy("Boss Man", "Sore throat, difficulting breathing", Severity.LOW, new Timestamp(System.currentTimeMillis()));
+        
+        System.out.println(peanutAllergy.getReporter());
+        System.out.println(peanutAllergy.getSymptoms());
+        System.out.println(peanutAllergy.getSeverity());
+        System.out.println(peanutAllergy.getReportedDate());
+    }
+}
+
+**********************************************************************************************************************************
+**********************************************************************************************************************************
+**********************************************************************************************************************************
+
+
+
+Design a class that tells you the temperature of a person. You also needed to have a method that could tell if they had a fever or not.
+You had to incorporate celsius and Fahrenheit degrees and the method of measuring the temperature (mouth, armpits).
+
+public class TemperatureMonitorClass{
+enum BodyLocation{
+    MOUTH, EAR, RECTUM, ARMPIT
+}
+
+enum RecentPhysicalActivity{
+    LOW,HIGH,MEDIUM
+}
+
+public static boolean hasFeverCheck(float temperature){
+    if(temperature > 100.4){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+public static class TemperatureClass{
+    private float temperature; 
+    private BodyLocation location;
+    private RecentPhysicalActivity activity;
+
+    public TemperatureClass(float temperature, BodyLocation location, RecentPhysicalActivity activity){
+        this.temperature = temperature;
+        this.location = location;
+        this.activity = activity;
+    }
+
+    public float getTemperature(){
+        return this.temperature;
+    }
+
+    public void setTemperature(float temperature){
+        this.temperature = temperature;
+    }
+
+    public BodyLocation getLocation(){
+        return this.location;
+    }
+
+    public void setLocation(BodyLocation location){
+        this.location = location;
+    }
+
+    public RecentPhysicalActivity getActivity(){
+        return this.activity;
+    }
+
+    public void setActivity(RecentPhysicalActivity activity){
+        this.activity = activity;
+    }
+
+    public boolean hasFever(){
+        boolean yesorno = hasFeverCheck(this.temperature);
+        return yesorno;
+    }
+
+}
+
+public static void main(String[] args){
+    TemperatureClass hP = new TemperatureClass(98.4f, BodyLocation.MOUTH, RecentPhysicalActivity.LOW);
+    TemperatureClass sP = new TemperatureClass(102.4f, BodyLocation.MOUTH, RecentPhysicalActivity.LOW);
+    System.out.printf("For the healthy patient, their temperature is %.1ff, the location of where the temperature was"
+    + " taken was the patient's %s, while their recent physical activaty was %s. This patient %s have a fever.\n",
+    hP.getTemperature(), hP.getLocation(), hP.getActivity(),
+    hP.hasFever() ? "does" : "does not");
+System.out.printf("For the sick patient, their temperature is %.1ff, the location of where the temperature was"
+    + " taken was the patient's %s, while their recent physical activaty was %s. This patient %s have a fever.",
+    sP.getTemperature(), sP.getLocation(), sP.getActivity(),
+    sP.hasFever() ? "does" : "does not");
+}
+}
+
+**********************************************************************************************************************************
+**********************************************************************************************************************************
+**********************************************************************************************************************************
+Design a class that alerts the nurse about the frequency of medication to each patient.
+The frequency could be hourly, daily or a patient could be advised to take it for lifetime when needed.
+
+https://github.com/zeilmannnoah/CernerInterviewQuestions/blob/master/MedicationQuestion.java
+https://github.com/rishabh-agarwal/Cerner-Interview-Guide/blob/master/CernerInterview/src/org/allergyProblem/Medication.java
+
+class Medication {
+
+	SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+	
+	private String dosage;
+	private float quantity;
+	private String startDate;
+	private Date endDate;
+	private int frequency;
+	
+	public Medication(String dosage, String start, Date end) {
+		this.dosage = dosage;
+		this.startDate = start;
+		this.endDate = end;
+	}
+	
+	
+	public Medication(String dosage, String start) {
+		this.dosage = dosage;
+		this.startDate = start;
+	}
+	
+
+	public Medication(SimpleDateFormat dateFormat, String dosage, float quantity, String startDate, Date endDate,
+			int frequency) {
+		this.dateFormat = dateFormat;
+		this.dosage = dosage;
+		this.quantity = quantity;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.frequency = frequency;
+	}
+
+	public String getDosage() {
+		return dosage;
+	}
+
+	public void setDosage(String dosage) {
+		this.dosage = dosage;
+	}
+
+	public float getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(float quantity) {
+		this.quantity = quantity;
+	}
+
+	public String getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+	public int getFrequency() {
+		return frequency;
+	}
+
+	public void setFrequency(int frequency) {
+		this.frequency = frequency;
+	}
+	
+	
+}
+
+**********************************************************************************************************************************
+                                                        OR
+**********************************************************************************************************************************
+https://github.com/pmareke/cerner_interview/blob/master/src/main/java/org/pmareke/cerner/medication/Medication.java
+
+import java.util.Calendar;
+
+/**
+ * Created by pmareke on 22/09/16.
+ */
+public class Medication {
+
+    private String name;
+    private Calendar start;
+    private Calendar end;
+
+    public Medication(String name, Calendar start, Calendar end) {
+        this.name = name;
+        this.start = start;
+        this.end = end;
+    }
+
+    public Medication(String name, Calendar start) {
+        this.name = name;
+        this.start = start;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Calendar getStart() {
+        return start;
+    }
+
+    public void setStart(Calendar start) {
+        this.start = start;
+    }
+
+    public Calendar getEnd() {
+        return end;
+    }
+
+    public void setEnd(Calendar end) {
+        this.end = end;
+    }
+}
+
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+import org.pmareke.cerner.demographic.Person;
+import org.pmareke.cerner.fever.Location;
+import org.pmareke.cerner.fever.Temperature;
+import org.pmareke.cerner.medication.Medication;
+
+/**
+ * Created by pmareke on 22/09/16.
+ */
+public class Patient extends Person {
+
+    private List<Allergy> allergies;
+    private List<Disease> diseases;
+    private List<Medication> medications;
+    private Temperature temperature;
+    private Calendar lastSeen;
+
+    public Patient(String name, int age, Address address, List<Allergy> allergies, List<Disease> diseases) {
+        super(name, age, address);
+        this.allergies = allergies;
+        this.diseases = diseases;
+        this.lastSeen = Calendar.getInstance();
+    }
+
+    public Patient(String name, int age, Address address, List<Allergy> allergies, List<Disease> diseases,
+        List<Medication> medications) {
+        super(name, age, address);
+        this.allergies = allergies;
+        this.diseases = diseases;
+        this.medications = medications;
+        this.lastSeen = Calendar.getInstance();
+    }
+
+    public Patient(String name, int age, Address address, List<Allergy> allergies, List<Disease> diseases,
+        List<Medication> medications, Temperature temperature) {
+        super(name, age, address);
+        this.allergies = allergies;
+        this.diseases = diseases;
+        this.medications = medications;
+        this.temperature = temperature;
+        this.lastSeen = Calendar.getInstance();
+    }
+
+    public Patient(String name, int age, Address address, List<Allergy> allergies, List<Disease> diseases,
+        List<Medication> medications, Temperature temperature, Calendar lastSeen) {
+        super(name, age, address);
+        this.allergies = allergies;
+        this.diseases = diseases;
+        this.medications = medications;
+        this.temperature = temperature;
+        this.lastSeen = lastSeen;
+    }
+
+    public List<Allergy> getAllergies() {
+        return allergies;
+    }
+
+    public void setAllergies(List<Allergy> allergies) {
+        this.allergies = allergies;
+    }
+
+    public List<Disease> getDiseases() {
+        return diseases;
+    }
+
+    public void setDiseases(List<Disease> diseases) {
+        this.diseases = diseases;
+    }
+
+    public List<Medication> getMedications() {
+        return Optional.ofNullable(medications).orElse(Collections.emptyList());
+    }
+
+    public void setMedications(List<Medication> medications) {
+        this.medications = medications;
+    }
+
+    public Temperature getTemperature() {
+        return Optional.ofNullable(temperature).orElse(new Temperature(0, Location.Mouth));
+    }
+
+    public void setTemperature(Temperature temperature) {
+        this.temperature = temperature;
+    }
+
+    public Calendar getLastSeen() {
+        return lastSeen;
+    }
+
+    public void setLastSeen(Calendar lastSeen) {
+        this.lastSeen = lastSeen;
+    }
+
+    public boolean hasFever() {
+        return temperature.getTemperature() > 39;
+    }
+
+    public String getFullAllergies() {
+        return this.getAllergies()
+            .stream()
+            .map(allergy -> String.format("%s with a %s severity.", allergy.getName(), allergy.getSeverity()))
+            .collect(joining("\n"));
+    }
+
+    public String getFullDiseases() {
+        return this.getDiseases()
+            .stream()
+            .map(disease -> String.format("%s disease.", disease.getName()))
+            .collect(joining("\n"));
+    }
+
+    public String getFullMedicines() {
+        return this.getMedications()
+            .stream()
+            .map(medication -> medication.getEnd() != null
+                ? String.format("%s from %s to %s.", medication.getName(), medication.getStart(), medication.getEnd())
+                : String.format("%s since %s.", medication.getName(), medication.getStart()))
+            .collect(joining("\n"));
+    }
+
+    public boolean hasMedicines() {
+        return !this.getMedications().isEmpty();
+    }
+}
+
+
+Scheduler n1 = new Scheduler("bob");
+Timer t = new Timer():
+t.schedulerAtFixRate(n1, 1000 * 60 * 60 * 6)
+
+class Scheduler extends TimerTask {
+
+	public Scheduler(String n){
+		this.name = n
+	}
+
+	@Override
+	public void run() {
+		if(currentDate <= endDate){
+			if(daysOfConsumption.contains(today)){
+				notify nurse
+			}
+	}
+
+    PriorityQueue<Integer> pQueue = new PriorityQueue<Integer>();
+    person.getDosage()
+
+While true { if pQueue.peek() >= current_timestamp { notify and perform pqueue.remove(pQueue.peek)
+pqueue.add( new timestamp obtained by adding frequency)}}
+
+}
