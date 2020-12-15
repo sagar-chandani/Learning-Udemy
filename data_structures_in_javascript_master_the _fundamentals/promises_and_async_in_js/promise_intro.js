@@ -16,12 +16,19 @@ function hello() { return "Hello"; }
 console.log(hello());
 
 async function hello1() { return "Hello" };
-console.log(hello1())
+console.log(hello1());
 
 let hello2 = async function(){ return "Hello"};
 console.log(hello2());
 
 let hello3 = async () => {return "Hello3"};
-print(hello3());
+// print(hello3());
 
 
+// let timer = setInterval(function(){ return print(hello3)}, 3, 1000)
+
+// promise with async await
+async function hello4(){
+    return greeting = await Promise.resolve("Hello")
+}
+console.log(hello4().then(print("Hey i am loaded")))
