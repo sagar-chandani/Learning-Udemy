@@ -1,5 +1,7 @@
+console.log('Hey')
+
 // The Object Literal :
-let person = {
+const person = {
   firstName: 'Sagar',
   lastName: 'Chandani',
   email: 'asd'
@@ -8,3 +10,9 @@ let person = {
 const {a, b} = person
 
 console.log(a, b)
+
+const anyfunction = (a) => {
+  return console.log(a.firstName)
+}
+
+anyfunction(person)
