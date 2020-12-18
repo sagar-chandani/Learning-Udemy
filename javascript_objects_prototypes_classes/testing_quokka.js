@@ -16,3 +16,6 @@ const anyfunction = (a) => {
 }
 
 anyfunction(person)
+
+var firstname = person.firstName
+console.log(firstname)
