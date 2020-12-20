@@ -19,3 +19,13 @@ anyfunction(person)
 
 var firstname = person.firstName
 console.log(firstname)
+
+/* Array Destructuring */
+function getScores () {
+  return [10, 20, 30, 40, 50]
+}
+
+let [x, y, z] = getScores()
+
+console.log(x)
+console.log(y)
