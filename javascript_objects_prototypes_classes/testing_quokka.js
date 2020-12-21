@@ -29,3 +29,9 @@ let [x, y, z] = getScores()
 
 console.log(x)
 console.log(y)
+
+function iDidNotDoAnythingToday () {
+  console.log('what a waste you are!')
+}
+
+iDidNotDoAnythingToday()
