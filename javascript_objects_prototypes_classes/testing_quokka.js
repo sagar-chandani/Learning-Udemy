@@ -33,5 +33,8 @@ console.log(y)
 function iDidNotDoAnythingToday () {
   console.log('what a waste you are!')
 }
-
 iDidNotDoAnythingToday()
+
+function pushingItToGit(){
+  console.log("making just to push on git");;
+}
