@@ -35,6 +35,3 @@ function iDidNotDoAnythingToday () {
 }
 iDidNotDoAnythingToday()
 
-function pushingItToGit(){
-  console.log("making just to push on git");;
-}
