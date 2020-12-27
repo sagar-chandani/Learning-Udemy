@@ -1,8 +1,8 @@
 console.log('hello')
 console.log('sad')
 
-function testingQuokka(){
-    console.log("hi")
+function testingQuokka(pass){
+    console.log(pass)
 }
 
-testingQuokka()
+testingQuokka("Hey how are you?")
