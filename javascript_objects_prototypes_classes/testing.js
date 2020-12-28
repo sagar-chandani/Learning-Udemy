@@ -6,3 +6,5 @@ function testingQuokka(pass){
 }
 
 testingQuokka("Hey how are you?")
+
+testingQuokka("You bloody waste of time")
