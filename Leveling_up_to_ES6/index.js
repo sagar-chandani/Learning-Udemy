@@ -35,3 +35,8 @@ console.log(max)
 /* Section 4 */
 //  6. Arrow Function
 
+let callthis = async (test) => {
+    console.log(test)
+}
+
+ callthis("hi")
